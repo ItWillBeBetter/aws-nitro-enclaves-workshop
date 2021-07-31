@@ -86,7 +86,7 @@ If you encounter that your enclave requires more available memory, you will have
 ### Run Client Application
 With the vsock-proxy and server application running, let's call it from the client application, running on the host. The client application will obtain the list of published IP ranges for AWS S3 service and filter out to the region that you specify as the last parameter in the client call. 
 
-Next comman will run client application `code/secure-local-channel/clinet.py` and pass Enclave ID, configured port `5005` and region parameter (you can change it from default `us-east-1`). Running the client application should return to you current published IP Rages for S3 service, filtered to the region that you provided. Please open new terminal window and run:
+Next comman will run client application `clinet.py` and pass Enclave ID, configured port `5005` and region parameter (you can change it from default `us-east-1`). Running the client application should return to you current published IP Rages for S3 service, filtered to the region that you provided. Please open new terminal window and run:
 
 ```sh
 $ cd ~/environment/aws-nitro-enclaves-workshop/resources/code/my-first-enclave/secure-local-channel/
