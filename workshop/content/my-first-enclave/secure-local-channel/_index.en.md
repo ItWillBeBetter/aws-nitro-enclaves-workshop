@@ -119,7 +119,7 @@ After that run the command below to start is as a service with default configura
 $ sudo systemctl enable nitro-enclaves-vsock-proxy.service
 $ sudo systemctl start nitro-enclaves-vsock-proxy.service
 ```
-Now the proxy runs using the default configuration from `/etc/vsock_proxy/config.yaml`, on local port `8001` and the AWS KMS endpoint corresponding to the instance's region.
+Now the proxy runs using the default configuration from `/etc/vsock_proxy/config.yaml`, on local port `8000` and the AWS KMS endpoint corresponding to the instance's region.
 
 ---
 #### Proceed to the [Cryptographic attestation](cryptographic-attestation.html) section to continue the workshop.
