@@ -56,16 +56,16 @@ $ echo "allowlist:" >> your-vsock-proxy.yaml
 $ echo "- {address: ip-ranges.amazonaws.com, port: 443}" >> your-vsock-proxy.yaml
 ```
 
-Such config file will allow proxy to route traffic to `ip-ranges.amazonaws.com` on port 443.
+Such config file will allow the proxy to route traffic to `ip-ranges.amazonaws.com` on port 443.
 
-Start proxy with next command (you can pass name of your config file as a parameter.):
+Start proxy with the next command (you can pass the name of your config file as a parameter.):
 
 ```sh
 $ vsock-proxy 8001 ip-ranges.amazonaws.com 443 --config your-vsock-proxy.yaml
 ```
 
 ### Run Server Application 
-With vsock-proxy running in the current terminal window, please create a new terminal window to run server application, navigate to `secure-local-channel`
+With vsock-proxy running in the current terminal window, please create a new terminal window to run the server application, navigate to `secure-local-channel`.
 
 ```sh
 $ cd ~/environment/aws-nitro-enclaves-workshop/resources/code/my-first-enclave/secure-local-channel/
@@ -86,7 +86,7 @@ If you encounter that your enclave requires more available memory, you will have
 ### Run Client Application
 With the vsock-proxy and server application running, let's call it from the client application, running on the host. The client application will obtain the list of published IP ranges for AWS S3 service and filter out to the region that you specify as the last parameter in the client call. 
 
-Next comman will run client application `client.py` and pass Enclave ID, configured port `5005` and region parameter (you can change it from default `us-east-1`). Running the client application should return to you current published IP Rages for S3 service, filtered to the region that you provided. Please open new terminal window and run:
+Next comman will run the client application `client.py` and pass Enclave ID, configured port `5005` and region parameter (you can change it from default `us-east-1`). Running the client application should return to you current published IP Rages for S3 service, filtered to the region that you provided. Please open new terminal window and run:
 
 ```sh
 $ cd ~/environment/aws-nitro-enclaves-workshop/resources/code/my-first-enclave/secure-local-channel/
