@@ -13,7 +13,7 @@ The client application will be reaching out to a server, running inside the Nitr
 
 
 {{% notice info %}}
-**What is vsock, and how do I use it to communicate with an enclave?** - Vsock is a type of socket interface that is defined by a context ID (CID) and port number. The context ID is parallel to an IP address in a TCP/IP connection. Vsock utilizes standard, well-defined POSIX Sockets APIs (e.g., connect, listen, accept) to communicate with an enclave. Applications can use these APIs to communicate natively over vsock, or they can send HTTP requests over vsock through a proxy.  
+**What is vsock, and how do I use it to communicate with an enclave?** - Vsock is a type of socket interface that is defined by a context ID (CID) and port number. The context ID is parallel to an IP address in a TCP/IP connection. Vsock utilizes standard, well-defined POSIX Sockets APIs (e.g., connect, listen, accept) to communicate with an enclave. Applications can use these APIs to communicate natively over vsock, or send HTTP requests over vsock through a proxy.  
 **Vsock socket** - Vsock is a local communication channel between a parent instance and an enclave. It is the only channel of communication that an enclave can use to interact with external services. An enclave's vsock address is defined by a context identifier (CID) that you can set when launching an enclave. The CID used by the parent instance is always 3.  
 **Vsock-Proxy** - Nitro enclave uses the vsock proxy to call the external endpoint through the parent instance's networking. In this workshop, you will use a vsock-proxy implementation that comes with the Nitro CLI. The example in this module will focus on reaching out to a custom endpoint, while later modules will use it to perform AWS KMS operations (`kms-decrypt`, `kms-generate-data-key`, and `kms-generate-random`) using the Nitro Enclaves SDK. Sessions with KMS are established logically between AWS KMS and the enclave itself, and all session traffic is protected from the parent instance.
 {{% /notice %}}
@@ -49,7 +49,7 @@ Take a look at the parameters that you can use to run the vsock-proxy.
 Outside of this workshop, you can install CLI and vsock-proxy both from source code and the Amazon Linux repository. See [Nitro Cli Github Repo](https://github.com/aws/aws-nitro-enclaves-cli) for more details.
 {{% /notice %}}
 
-By default, the provided vsock-proxy allows routing of traffic only to port 443 of different KMS endpoints in regions all over the globe. It is done through a config file (that you can see at `/etc/vsock_proxy/config.yaml`) through an allowlist. But for our example, we will point the proxy to a different website. You can use the `vsock-proxy.yaml` with sample code or create your custom file by running these commands:
+By default, the provided vsock-proxy allows routing of traffic only to port 443 of different KMS endpoints in regions all over the globe. The config file specifies allow list, that you can see at `/etc/vsock_proxy/config.yaml`. But for our example, we will point the proxy to a different website. You can use the `vsock-proxy.yaml` with sample code or create your custom file by running these commands:
 
 ```sh
 $ echo "allowlist:" >> your-vsock-proxy.yaml
